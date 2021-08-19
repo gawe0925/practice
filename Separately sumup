@@ -1,0 +1,6 @@
+num = input("Number : ")
+total = 0
+for i in range(len(num)):
+    a = int(num) / 10 ** i % 10
+    total += int(a)
+print(total)
