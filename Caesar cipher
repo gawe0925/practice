@@ -1,0 +1,22 @@
+n = input("How many digits you want to move ? ( Range : 0 ~ 100 ): ")
+if int(n) not in range(0, 101):
+    print("Out of range, please try again.")
+else:
+    s = input("What's your content ? ( Lower case only ) : ")
+
+
+    def islower(s):
+        for i in s:
+            if ord(i) not in range(97, 123):
+                return 1
+
+
+    if islower(s) == 1:
+        print("The content should be lower case only")
+    else:
+        for i in range((len(s))):
+            cod = ord(s[i]) + int(n)
+            if int(cod) > 122:
+                print(chr((int(cod) - 123) + int(97)), end='')
+            else:
+                print(chr(cod), end='')
