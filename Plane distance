@@ -1,0 +1,11 @@
+import math
+x1 = int(input("Enter the first location x1 : "))
+y1 = int(input("Enter the first location y1 : "))
+x2 = int(input("Enter the second location x2 : "))
+y2 = int(input("Enter the second location y2 : "))
+
+if x1 in range(-100, 101) and y1 in range(-100, 101) and x2 in range(-100, 101) and y2 in range(-100, 101):
+    a = math.sqrt((abs(x1 - x2) ** 2) + (abs(y1 - y2) ** 2))
+    print("Plane distance is : " + str(round(a, 2)))
+else:
+    print("The location is out of range : -100 ~ 100")
