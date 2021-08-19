@@ -1,0 +1,39 @@
+def creditcard(num):
+    def checknumber(a2, b2):
+        if (a2 + b2) % 10 > 0:
+            return 10 - (a2 + b2) % 10
+        elif (a2 + b2) % 10 == 0:
+            return 0
+    temp = []
+    if '-' in num:
+        num = num.split('-')
+        for i in range(4):
+            for j in num[i]:
+                temp.append(j[::-1])
+        a2 = 0
+        for a in range(8):
+            a1 = (int(temp[2 * a])) * 2
+            if a1 >= 10:
+                a1 = a1 - 9
+                a2 += a1
+            elif a1 < 10:
+                a2 += a1
+        b2 = 0
+        for b in range(8):
+            if b > 0:
+                b1 = int(temp[2 * b - 1])
+                b2 += b1
+        if int(temp[-1]) == checknumber(a2, b2) and temp[0] == '5':
+            print("Mastercard")
+        elif int(temp[-1]) == checknumber(a2, b2) and temp[0] == '4':
+            print("Visa card")
+        elif int(temp[-1]) == checknumber(a2, b2) and temp[0] == '3':
+            print("JCB card")
+        elif int(temp[-1]) != checknumber(a2, b2):
+            print("INVALID !")
+    else:
+        print("Please enter correct card number with ' - ' within every 4 digits")
+
+
+credit = input("Enter your credit card number : ")
+creditcard(credit)
