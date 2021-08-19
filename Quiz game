@@ -1,0 +1,79 @@
+def new_game():
+    guesses = []
+    correct_guesses = 0
+    question_num = 1
+    for key in questions:
+        print("     ")
+        print(key)
+        for i in options[question_num-1]:
+            print(i)
+        guess = input("Your answer is ? (A, B, C or D):").upper()
+        guesses.append(guess)
+        correct_guesses += check_answer(questions.get(key), guess)
+        question_num += 1
+    display_score(correct_guesses, guesses)
+
+
+def check_answer(answer, guess):
+    limi = ("A", "B", "C", "D", "a", "b", "c", "d")
+    if answer == guess:
+        print("Correct !")
+        return 1
+    elif guess not in limi:
+        print("Please type A, B, C or D only")
+        return 0
+    else:
+        print("False ~ ")
+        return 0
+
+
+def display_score(correct_guesses, guesses):
+    print("     ")
+    print("Result: ")
+    print("     ")
+    print("Correct Answer is : ", end="")
+    for i in questions:
+        print(questions.get(i), end=" ")
+    print()
+    print("Your Answers: ", end="")
+    for i in guesses:
+        print(i, end=" ")
+    print()
+    score = int((correct_guesses / len(questions))*100)
+    print("Your score is :" " " + str(score) + "% correct !")
+    if score < 50:
+        print("You fail !")
+    elif score in range(50, 100):
+        print("Doing well ! You could be better !")
+    else:
+        print("Well done !")
+
+
+def play_again():
+    response = input("Would you like to play again ? ( Yes / No ) : ").upper()
+    if response == 'Yes':
+        return True
+    elif response == 'Y':
+        return True
+    else:
+        return False
+
+
+questions = {
+    "1+1 = ?": "C",
+    "2+3 = ?": "B",
+    "6*3 = ?": "A",
+    "6*9 = ?": "D"
+}
+
+options = [["A:1", "B:3", 'C:2', "D:0"],
+          ["A:1", "B:5", "C:0", "D:-1"],
+          ["A:18","B:2","C:IDK","D:0000"],
+          ["A:69", "B:96", "C:?????","D:54"]]
+
+new_game()
+
+while play_again():
+    new_game()
+
+print("See you ~ ")
