@@ -9,7 +9,7 @@ def creditcard(num):
         num = num.split('-')
         for i in range(4):
             for j in num[i]:
-                temp.append(j[::-1])
+                temp.append(j)
         single_sum = 0
         for a in range(8):
             a1 = (int(temp[2 * a])) * 2
