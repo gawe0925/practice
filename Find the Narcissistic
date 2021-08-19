@@ -1,0 +1,21 @@
+def isnarcissistic(n, m):
+
+    for i in range(n, m + 1):
+        if i >= n and i <= m:
+            ch = i
+            temp = []
+            for i in range(0, len(str(ch))):
+                a = (int(ch) / 10 ** i) % 10
+                temp.append(int(a))
+            digits = len(temp)
+            total = 0
+            for i in range(0, digits):
+                num = ch / 10 ** i % 10
+                total += int(num) ** digits
+            if int(ch) == int(total):
+                print("Number : " + str(ch) + " is the Narcissistic number")
+
+
+st = int(input("Give me the starting point : "))
+en = int(input("Give me the ending point : "))
+isnarcissistic(st, en)
