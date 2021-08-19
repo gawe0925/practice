@@ -1,0 +1,11 @@
+num = [2, 5, 11, 8, 3, 1]
+maxii = num[0]
+max2 = 0
+for i in num:
+    if i > maxii:
+        max2 = maxii
+        maxii = i
+    elif maxii > i and i > max2:
+        max2 = i
+
+print(maxii, max2)
