@@ -1,0 +1,8 @@
+n = input("How many rolls? :")
+
+for i in range(int(n)):
+    for j in range(int(n) - i - 1):
+        print(" ", end="")
+    for q in range(2 * i):
+        print("^", end="")
+    print("^")
