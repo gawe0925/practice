@@ -1,8 +1,8 @@
 def creditcard(num):
-    def checknumber(a2, b2):
-        if (a2 + b2) % 10 > 0:
-            return 10 - (a2 + b2) % 10
-        elif (a2 + b2) % 10 == 0:
+    def checknumber(single_num, double_num):
+        if (single_num + double_num) % 10 > 0:
+            return 10 - (single_num + double_num) % 10
+        elif (single_num + double_num) % 10 == 0:
             return 0
     temp = []
     if '-' in num:
@@ -10,26 +10,26 @@ def creditcard(num):
         for i in range(4):
             for j in num[i]:
                 temp.append(j[::-1])
-        a2 = 0
+        single_sum = 0
         for a in range(8):
             a1 = (int(temp[2 * a])) * 2
             if a1 >= 10:
                 a1 = a1 - 9
-                a2 += a1
+                single_sum += a1
             elif a1 < 10:
-                a2 += a1
-        b2 = 0
+                single_sum += a1
+        double_sum = 0
         for b in range(8):
             if b > 0:
                 b1 = int(temp[2 * b - 1])
-                b2 += b1
-        if int(temp[-1]) == checknumber(a2, b2) and temp[0] == '5':
+                double_sum += b1
+        if int(temp[-1]) == checknumber(single_sum, double_sum) and temp[0] == '5':
             print("Mastercard")
-        elif int(temp[-1]) == checknumber(a2, b2) and temp[0] == '4':
+        elif int(temp[-1]) == checknumber(single_sum, double_sum) and temp[0] == '4':
             print("Visa card")
-        elif int(temp[-1]) == checknumber(a2, b2) and temp[0] == '3':
+        elif int(temp[-1]) == checknumber(single_sum, double_sum) and temp[0] == '3':
             print("JCB card")
-        elif int(temp[-1]) != checknumber(a2, b2):
+        elif int(temp[-1]) != checknumber(single_sum, double_sum):
             print("INVALID !")
     else:
         print("Please enter correct card number with ' - ' within every 4 digits")
