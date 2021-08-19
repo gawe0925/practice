@@ -1,0 +1,18 @@
+def calculator(cal):
+    if ' ' not in cal:
+        print("Please use blanks to separate every digits")
+    else:
+        cal = cal.split(' ')
+        if '+' in cal:
+            print(int(cal[0]) + int(cal[2]))
+        elif '-' in cal:
+            print(int(cal[0]) - int(cal[2]))
+        elif '*' in cal:
+            print(int(cal[0]) * int(cal[2]))
+        elif '/' in cal:
+            print(int(cal[0]) // int(cal[2]))
+        elif '**' in cal:
+            print(int(cal[0]) ** int(cal[2]))
+
+
+calculator('7 / 4')
