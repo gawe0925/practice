@@ -1,0 +1,19 @@
+def isnine(nine):
+    if str(9) in nine:
+        return True
+
+
+num = int(input("Give me a number: "))
+n = str(num)
+a = num // 10
+a1 = num // 10 ** (len(str(num)) - 1)
+b = a * 10 + 9
+ans = 0
+if isnine(n):
+    print("Not exist")
+elif num < 90 and num in range(a, b):
+    ans = num - (a * 1)
+    print(ans)
+else:
+    ans = (num - 10 * a1) - 9 * a1
+    print(ans)
