@@ -1,0 +1,39 @@
+def condition(arr, loo):
+    if ' ' not in arr:
+        print("Please use space to separate every item.")
+    else:
+        arr = arr.split(' ')
+        if len(arr) != loo:
+            print("Please enter correct content")
+        else:
+            negligible(arr)
+
+
+def negligible(n):
+    a = 0
+    num1 = 0
+    num2 = 0
+    temp = []
+    for i in n:
+        if n.count(i) > len(n) // 2:
+            a = i
+            num1 = n.count(i)
+            num2 = len(n) - n.count(i)
+    if num1 == num2:
+        print("Peace")
+    elif num2 == 0:
+        print("Peace")
+    else:
+        for j in range(len(n)):
+            if n[j] == a:
+                temp.append(j + 1)
+        for x in range(1, len(n) + 1):
+            if x not in temp:
+                print("Number " + str(x), end="")
+                print(" is the different one.")
+
+
+le = int(input("How many people vote ? : "))
+it = input("Their options ? : ")
+# i.e. A for tea, B for milk
+condition(it, le)
