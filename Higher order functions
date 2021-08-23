@@ -1,0 +1,14 @@
+def loud(text):
+    return text.upper()
+
+
+def qu(text):
+    return text.lower()
+
+
+def he(ch):
+    text = ch(input("Give me some text : "))
+    print(text)
+
+
+he(loud)
