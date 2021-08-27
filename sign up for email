@@ -1,0 +1,13 @@
+def mail(n):
+    if '@' not in n:
+        return "Please check your email address"
+    for i in range(len(n)):
+        if n[i] == '@':
+            name = n[:i]
+            for j in range(len(name)):
+                name = name[0].upper() + name[1:]
+                return '\nHi  ' + name + ' !\nThank you for sign up ' + name + '.com\n'
+
+
+email = input("Please sign up your email :")
+print(mail(email))
